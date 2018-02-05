@@ -74,7 +74,7 @@ defmodule Sippet.Transports.Worker do
         host = ip |> ip_to_string()
       
         message
-        |> Message.update_header_back(:via, nil,
+        |> Message.update_header_front(:via, nil,
           fn({version, protocol, {via_host, via_port}, params}) ->
             params =
               if host != via_host do
