@@ -84,7 +84,7 @@ defmodule Sippet.Transports.Worker do
               end
       
             params =
-              if from_port != via_port do
+              if from_port != via_port or Map.get(params, "rport") == "" do
                 params |> Map.put("rport", to_string(from_port))
               else
                 params
